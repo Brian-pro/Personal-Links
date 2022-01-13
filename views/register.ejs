@@ -1,0 +1,39 @@
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-left-container">
+            <a href="/">
+                <span class="logo-personal">Personal&nbsp;</span><span class="logo-links">Links</span>
+            </a>
+        </div>
+    </div>
+</nav>
+<!--Sign up modal popup -->
+<div class="center-form">
+    <div class="signup-container">
+        <div class="modal-header">Register Now!</div>
+        <%- include('../partials/messages.ejs') %>
+        <form action="/users/register" method="POST" class="form">
+            <div class="input-container">
+                <label for="name">Name</label>
+                <input class="name" type="text" name="name" placeholder="Name" value="<%= typeof name != 'undefined' ? name : '' %>">
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input class="email" type="text" name="email" placeholder="Email" value="<%= typeof email != 'undefined' ? email : '' %>">
+            </div>
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input class="password" type="password" name="password" placeholder="Password" value="<%= typeof password != 'undefined' ? password : '' %>">
+            </div>
+            <div class="input-container">
+                <label for="password2">Confirm Password</label>
+                <input class="password2" type="password" name="password2" placeholder="Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+            </div>
+            <div class="form-btn-center">
+                <button type="submit" class="signup-continue-btn">Sign Up</button>
+            </div>
+        </form>
+        <p>Have An Account? <a href="/users/login" class="create-account-link">Login</a></p>
+    </div>
+</div>
