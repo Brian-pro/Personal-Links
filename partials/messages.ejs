@@ -7,3 +7,27 @@
         </div>
     <% }); %>
 <% } %>
+
+<% if(successMsg != '') { %>
+    <div class="success-msg-container">
+        <div class="success-msg">
+            <i class="fas fa-check-square"></i> <%= successMsg %>
+        </div>
+    </div>
+<% } %>
+
+<% if(errorMsg != '') { %>
+    <div class="error-msg-container">
+        <div class="error-msg">
+            <i class="fas fa-exclamation-circle"></i> <%= errorMsg %>
+        </div>
+    </div>
+<% } %>
+
+<% if(error != '') { %>
+    <div class="error-msg-container">
+        <div class="error-msg">
+            <i class="fas fa-exclamation-circle"></i> <%= error %>
+        </div>
+    </div>
+<% } %>

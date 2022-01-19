@@ -290,14 +290,25 @@ a, button {
     color: #fff;
 }
 
-/* Error msg styling */
+/* Message stylings */
 .error-msg-container {
-    color: #D8000C;
-    border: 1px #D8000C solid;
+    color: #ff0033;
+    border: 1px #ff0033 solid;
     background-color: #FFD2D2;
     margin-bottom: 3px;
 }
 
 .error-msg {
+    margin-left: 2px;
+}
+
+.success-msg-container {
+    color: #4F8A10;
+    border: 1px #4F8A10 solid;
+    background-color: #DFF2BF;
+    margin-bottom: 3px;
+}
+
+.success-msg {
     margin-left: 2px;
 }

@@ -1,7 +1,13 @@
 const express = require('express'); // including express
 const expressLayouts =  require('express-ejs-layouts');
 const mongoose = require('mongoose');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
 const app = express(); 
+
+// Passport configuration
+require('./config/passport')(passport);
 
 // DB configuration
 const db = require('./config/keys').MongoURI;
@@ -17,6 +23,28 @@ app.set('view engine', 'ejs');
 
 // Bodyparser
 app.use(express.urlencoded({ extended: false }));
+
+// Express session
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+  }));
+
+// Passport setup
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect Flash
+app.use(flash());
+
+// Variables used to display flash messages
+app.use((req, res, next) => {
+    res.locals.successMsg = req.flash('successMsg');
+    res.locals.errorMsg = req.flash('errorMsg');
+    res.locals.error = req.flash('error');
+    next();
+});
 
 // Static directories for use
 app.use("/css", express.static(__dirname + "/css")); // static directory to styling pages
